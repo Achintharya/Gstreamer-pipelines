@@ -1,0 +1,130 @@
+{
+  "introduction": {
+    "title": "Introduction to Dynamic Pipelines",
+    "content": "Dynamic pipelines in GStreamer allow you to build flexible multimedia applications. They enable you to create, change, and manage media processing pipelines dynamically."
+  },
+  "key_concepts": {
+    "gstreamer_elements": {
+      "title": "GStreamer Elements",
+      "content": "Elements are the basic building blocks of GStreamer pipelines. They can be sources, filters, or sinks.",
+      "related_sections": {
+        "tutorial_steps": "step_2_adding_elements",
+        "code_snippets": "snippet_2_adding_elements"
+      }
+    },
+    "pads_and_signals": {
+      "title": "Pads and Signals",
+      "content": "Pads are the input and output interfaces of elements. Signals are used to notify the application of various events.",
+      "related_sections": {
+        "tutorial_steps": "step_4_handling_pad_added_signal",
+        "code_snippets": "snippet_4_handling_pad_added_signal"
+      }
+    }
+  },
+  "tutorial_steps": {
+    "step_1_creating_a_pipeline": {
+      "title": "Creating a Pipeline",
+      "content": "To create a pipeline, use the `gst_pipeline_new()` function.",
+      "code_snippets": "snippet_1_creating_a_pipeline"
+    },
+    "step_2_adding_elements": {
+      "title": "Adding Elements",
+      "content": "Elements can be added to the pipeline using the `gst_bin_add()` function.",
+      "code_snippets": "snippet_2_adding_elements",
+      "related_concepts": "gstreamer_elements"
+    },
+    "step_3_linking_elements": {
+      "title": "Linking Elements",
+      "content": "Elements are linked together using the `gst_element_link()` function.",
+      "code_snippets": "snippet_3_linking_elements"
+    },
+    "step_4_handling_pad_added_signal": {
+      "title": "Handling Pad-Added Signal",
+      "content": "Use the pad-added signal to dynamically link elements when a new pad is added.",
+      "code_snippets": "snippet_4_handling_pad_added_signal",
+      "related_concepts": "pads_and_signals"
+    }
+  },
+  "code_snippets": {
+    "snippet_1_creating_a_pipeline": {
+      "description": "Code for creating a pipeline",
+      "code": "pipeline = gst_pipeline_new('mypipeline');",
+      "related_tutorial_steps": "step_1_creating_a_pipeline"
+    },
+    "snippet_2_adding_elements": {
+      "description": "Code for adding elements",
+      "code": "gst_bin_add(GST_BIN(pipeline), source);",
+      "related_tutorial_steps": "step_2_adding_elements",
+      "related_concepts": "gstreamer_elements"
+    },
+    "snippet_3_linking_elements": {
+      "description": "Code for linking elements",
+      "code": "gst_element_link(source, sink);",
+      "related_tutorial_steps": "step_3_linking_elements"
+    },
+    "snippet_4_handling_pad_added_signal": {
+      "description": "Handling pad-added signal",
+      "code": "g_signal_connect(source, 'pad-added', G_CALLBACK(on_pad_added), sink);",
+      "related_tutorial_steps": "step_4_handling_pad_added_signal",
+      "related_concepts": "pads_and_signals"
+    }
+  },
+  "examples_and_use_cases": {
+    "use_case_1_dynamic_audio_processing": {
+      "title": "Dynamic Audio Processing",
+      "content": "An example use case of dynamic pipelines is changing audio effects in real-time.",
+      "related_concepts": [
+        "gstreamer_elements",
+        "pads_and_signals"
+      ]
+    }
+  },
+  "metadata": {
+    "introduction": [
+      "overview",
+      "dynamic pipelines"
+    ],
+    "key_concepts": [
+      "elements",
+      "pads",
+      "signals"
+    ],
+    "tutorial_steps": [
+      "pipeline",
+      "elements",
+      "linking"
+    ],
+    "code_snippets": [
+      "code",
+      "examples"
+    ],
+    "examples_and_use_cases": [
+      "use case",
+      "audio processing"
+    ]
+  },
+  "code_snippets_python": {
+    "snippet_1_creating_a_pipeline": {
+      "description": "Code for creating a pipeline in Python",
+      "code": "pipeline = Gst.Pipeline.new('mypipeline')",
+      "related_tutorial_steps": "step_1_creating_a_pipeline"
+    },
+    "snippet_2_adding_elements": {
+      "description": "Code for adding elements in Python",
+      "code": "pipeline.add(source)",
+      "related_tutorial_steps": "step_2_adding_elements",
+      "related_concepts": "gstreamer_elements"
+    },
+    "snippet_3_linking_elements": {
+      "description": "Code for linking elements in Python",
+      "code": "source.link(sink)",
+      "related_tutorial_steps": "step_3_linking_elements"
+    },
+    "snippet_4_handling_pad_added_signal": {
+      "description": "Handling pad-added signal in Python",
+      "code": "source.connect('pad-added', on_pad_added, sink)",
+      "related_tutorial_steps": "step_4_handling_pad_added_signal",
+      "related_concepts": "pads_and_signals"
+    }
+  }
+}
